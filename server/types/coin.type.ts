@@ -1,5 +1,6 @@
 import { z } from 'zod';
-
+// Types and Schemas used in {prices} route,controller,services or test
+// Zod schemas for validation
 export const CoinSchema = z.object({
   id: z.string(),
   slug: z.string(),
@@ -425,8 +426,31 @@ export const AssetsSchema = z.object({
 
 export const AssetSchema = z.object({
   status: z.object({ elapsed: z.number(), timestamp: z.string() }),
-  data: CoinSchema,
+  data: z.object({
+    id: z.string(),
+    serial_id: z.number(),
+    symbol: z.string(),
+    name: z.string(),
+    slug: z.string(),
+    contract_addresses: z.null(),
+    _internal_temp_agora_id: z.string(),
+  }),
 });
+
+export const DataSingleCoin = z.object({
+  asset: z.object({
+    id: z.string(),
+    serial_id: z.number(),
+    symbol: z.string(),
+    name: z.string(),
+    slug: z.string(),
+    contract_addresses: z.null(),
+    _internal_temp_agora_id: z.string(),
+  }),
+});
+
+// types for typesafe
+export type TCoinSingle = z.infer<typeof DataSingleCoin>;
 
 export type TCoin = z.infer<typeof CoinSchema>;
 
