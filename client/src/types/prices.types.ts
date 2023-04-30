@@ -418,9 +418,13 @@ export const CoinSchema = z.object({
   }),
 });
 
-export type TColumnLiveCalculator = {
-  name: string;
-  monthRet: string;
-  price: string;
-};
 export type TCoin = z.infer<typeof CoinSchema>;
+
+export const ReturnShema = z.object({
+  id: z.string(),
+  name: z.string(),
+  price: z.number(),
+  monthRet: z.number(),
+});
+
+export type TReturn = z.infer<typeof ReturnShema>;

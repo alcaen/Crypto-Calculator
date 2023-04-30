@@ -1,20 +1,9 @@
-import { type TCoin } from "@/types/prices.types";
+import { type TCoin } from "../types/prices.types";
+import { compact, formatter } from "../utils/lib";
 
 interface CoinRowProps {
   coin: TCoin;
 }
-
-const formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 2,
-});
-
-const compact = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  notation: "compact",
-});
 
 const CoinRow: React.FC<CoinRowProps> = ({ coin }) => {
   const changes = [
