@@ -2,6 +2,7 @@ import { FileJson2, FileType2 } from "lucide-react";
 import type { TCoin } from "../types/prices.types";
 import { exportDataCSV, exportDataJSON } from "../utils/lib";
 
+// Buttons only export data if is data avaliable otherwise these are disabled with red color
 interface ExportButtonsProps {
   assets: TCoin[] | undefined;
 }

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tailwind base used to style everything icons from lucide */
+
+/* Disable the arrows on input number */
 @layer base {
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {

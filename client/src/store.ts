@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import priceReducer from "./slices/pricesSlice";
 
+// Store for the calculator Redux to global state
 export const store = configureStore({
   reducer: { priceReducer },
 });

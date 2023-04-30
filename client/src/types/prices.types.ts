@@ -1,5 +1,5 @@
 import { z } from "zod";
-
+// Schema for validaiton of each coin inside asset
 export const CoinSchema = z.object({
   id: z.string(),
   slug: z.string(),
@@ -417,14 +417,15 @@ export const CoinSchema = z.object({
     alert_messages: z.null(),
   }),
 });
-
+// Type of coins inside asset
 export type TCoin = z.infer<typeof CoinSchema>;
 
+// The schema for the endpoint /monthReturn that is used in the calculator
 export const ReturnShema = z.object({
   id: z.string(),
   name: z.string(),
   price: z.number(),
   monthRet: z.number(),
 });
-
+// Type  for the endpoint /monthReturn that is used in the calculator
 export type TReturn = z.infer<typeof ReturnShema>;

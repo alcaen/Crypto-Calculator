@@ -1,7 +1,10 @@
-import type { TCoin, TReturn } from "../types/prices.types";
+// Utilities to handle data or process data
+
+import type { TCoin } from "../types/prices.types";
 
 import exportFromJSON from "export-from-json";
 
+// Export the assets to a JSON file called data.json
 export const exportDataJSON = (assets: TCoin[] | undefined) => {
   if (assets) {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
@@ -15,6 +18,7 @@ export const exportDataJSON = (assets: TCoin[] | undefined) => {
   }
 };
 
+// Export the assets to a CSV file called data.csv
 export const exportDataCSV = (assets: TCoin[] | undefined) => {
   if (assets) {
     const data = assets;
@@ -27,12 +31,13 @@ export const exportDataCSV = (assets: TCoin[] | undefined) => {
   }
 };
 
+// Format the currencies with 2 decimals to the usd standard
 export const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
   maximumFractionDigits: 2,
 });
-
+// Format the currencies with compact design (Billions Millions) to the usd standard
 export const compact = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",

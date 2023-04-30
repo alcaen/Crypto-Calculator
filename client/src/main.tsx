@@ -6,6 +6,7 @@ import { store } from "./store";
 import { Provider } from "react-redux";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  // Provider makes the store accesible to all components inside the App
   <Provider store={store}>
     <React.StrictMode>
       <App />

@@ -57,7 +57,7 @@ async function emitSelectedAssets({ delay }: { delay: number }) {
 
 // emit selected assets to all clients every {delay} time
 // delay is in ms so 600000 is 10 minutes
-void emitSelectedAssets({ delay: 6000 });
+void emitSelectedAssets({ delay: 600000 });
 
 io.on('connection', async (socket) => {
   // When a client connects update the user count (+1) and print the id on the server console

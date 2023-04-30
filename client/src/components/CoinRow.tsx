@@ -6,6 +6,7 @@ interface CoinRowProps {
 }
 
 const CoinRow: React.FC<CoinRowProps> = ({ coin }) => {
+  // Values selected for the heders in CryptoTable
   const changes = [
     {
       name: "change1H",
@@ -28,13 +29,12 @@ const CoinRow: React.FC<CoinRowProps> = ({ coin }) => {
       change: coin.metrics.roi_data.percent_change_last_1_year,
     },
   ];
-  const logos = {
-    name: "Bitcoin",
-  };
+
   return (
     <tr className="h-12 border border-gray-200 text-center font-medium">
       <td className="">
         <div className="flex w-14 items-center justify-center p-2">
+          {/* Logos came from the API with the coin ID */}
           <img
             className=" rounded-full"
             src={`https://asset-images.messari.io/images/${coin.id}/32.png?v=2`}
@@ -52,11 +52,13 @@ const CoinRow: React.FC<CoinRowProps> = ({ coin }) => {
       <td>
         {compact.format(coin.metrics.market_data.real_volume_last_24_hours)}
       </td>
+      {/* For the price changes i use dinamic colors red if is down green if is up this way i can see how i lose my doges on real time */}
       {changes.map((interval) => (
         <td
           key={interval.name}
           className={interval.change < 0 ? "text-red-700" : "text-green-700"}
         >
+          {/* Only first two decimal digits avaliable */}
           {interval.change.toFixed(2)}%
         </td>
       ))}

@@ -1,3 +1,4 @@
+// Spinner that shows while awaitinf data from the back
 const LoadingSpiner: React.FC = ({}) => {
   return (
     <div className="relative flex items-center justify-center">
